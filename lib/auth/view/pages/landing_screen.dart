@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ubereats/auth/view/pages/phone_input.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -41,6 +43,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
+                        Get.to(() => const PhoneInput());
                         // Handle login button press
                       },
                       style: ElevatedButton.styleFrom(
@@ -52,9 +55,10 @@ class _LandingScreenState extends State<LandingScreen> {
                       child: const Text(
                         'Login',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 20,
                           fontFamily: 'UberMoveText',
                           color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
