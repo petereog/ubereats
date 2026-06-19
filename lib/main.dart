@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ubereats/auth/view/pages/splash_screen.dart';
-import 'package:ubereats/auth/view/pages/landing_screen.dart';
 
 void main() {
   runApp(const MyApp());

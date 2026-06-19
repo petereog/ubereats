@@ -10,6 +10,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final ImageProvider _logoImage = const AssetImage('assets/images/logo.png');
+  bool _isPrecached = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_isPrecached) {
+      _isPrecached = true;
+      precacheImage(_logoImage, context);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -30,27 +42,24 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                constraints: const BoxConstraints(
-                  maxWidth: 200,
-                  maxHeight: 200,
-                ),
-                child: Image.asset(
-                  'assets/images/eats.png',
+              SizedBox(
+                width: 150,
+                height: 150,
+                child: Image(
+                  image: _logoImage,
                   fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Container(
-                      width: 150,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF06C167),
-                        borderRadius: BorderRadius.circular(75),
-                      ),
-                      child: const Center(
-                        child: Icon(
-                          Icons.restaurant,
-                          color: Colors.white,
-                          size: 80,
+                  gaplessPlayback: true,
+                  frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                    if (wasSynchronouslyLoaded || frame != null) {
+                      return child;
+                    }
+                    return const Center(
+                      child: SizedBox(
+                        width: 28,
+                        height: 28,
+                        child: CircularProgressIndicator(
+                          color: Color(0xFF06C167),
+                          strokeWidth: 2,
                         ),
                       ),
                     );

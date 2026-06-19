@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'dart:async';
 import 'package:ubereats/auth/view/pages/phone_verification.dart';
 
 class PhoneInput extends StatefulWidget {
@@ -15,9 +16,11 @@ class _PhoneInputState extends State<PhoneInput> {
   final TextEditingController _phoneController = TextEditingController();
   PhoneNumber _phoneNumber = PhoneNumber(isoCode: 'US');
   bool _isValidPhone = false;
+  Timer? _validationDebounce;
 
   @override
   void dispose() {
+    _validationDebounce?.cancel();
     _phoneController.dispose();
     super.dispose();
   }
@@ -52,20 +55,28 @@ class _PhoneInputState extends State<PhoneInput> {
                   onInputChanged: (PhoneNumber number) {
                     _phoneNumber = number;
                   },
+                  // Debounce validation to avoid frequent setState calls while typing
                   onInputValidated: (bool isValid) {
-                    setState(() {
-                      _isValidPhone = isValid;
+                    _validationDebounce?.cancel();
+                    _validationDebounce = Timer(const Duration(milliseconds: 250), () {
+                      if (mounted) {
+                        setState(() {
+                          _isValidPhone = isValid;
+                        });
+                      }
                     });
                   },
                   selectorConfig: const SelectorConfig(
                     selectorType: PhoneInputSelectorType.DROPDOWN,
                   ),
                   ignoreBlank: false,
-                  autoValidateMode: AutovalidateMode.onUserInteraction,
+                  // Disable continuous auto-validate to reduce work while typing
+                  autoValidateMode: AutovalidateMode.disabled,
                   selectorTextStyle: const TextStyle(color: Colors.black87),
                   initialValue: _phoneNumber,
                   textFieldController: _phoneController,
-                  formatInput: true,
+                  // Formatting can be expensive on some devices; disable for stability
+                  formatInput: false,
                   keyboardType: const TextInputType.numberWithOptions(
                     signed: false,
                     decimal: false,
