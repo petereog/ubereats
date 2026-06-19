@@ -15,7 +15,9 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // Wait 3 seconds then navigate to LandingScreen
     Future.delayed(const Duration(seconds: 3), () {
-      Get.off(() => const LandingScreen());
+      if (mounted) {
+        Get.off(() => const LandingScreen());
+      }
     });
   }
 
@@ -23,12 +25,40 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF142328),
-      body: Center(
-        child: Image.asset(
-          'assets/images/Logo.png',
-          width: 150,
-          height: 150,
-          fit: BoxFit.contain,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                constraints: const BoxConstraints(
+                  maxWidth: 200,
+                  maxHeight: 200,
+                ),
+                child: Image.asset(
+                  'assets/images/eats.png',
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      width: 150,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF06C167),
+                        borderRadius: BorderRadius.circular(75),
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.restaurant,
+                          color: Colors.white,
+                          size: 80,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

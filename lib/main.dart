@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'UberMoveText',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const LandingScreen(),
+      home: const SplashScreen(),
     );
   }
 }
