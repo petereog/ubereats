@@ -46,7 +46,7 @@ class _PhoneInputState extends State<PhoneInput> {
                     labelText: 'Phone Number',
                     hintText: 'Enter phone number',
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(1),
                     ),
                   ),
                   onChanged: (phone) {
@@ -62,7 +62,7 @@ class _PhoneInputState extends State<PhoneInput> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF06C167),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(1),
                       ),
                     ),
                     child: const Text(
@@ -115,7 +115,7 @@ class _PhoneInputState extends State<PhoneInput> {
                   width: double.infinity,
                   height: 52,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(1),
                     border: Border.all(color: Colors.black),
                   ),
                   child: Row(

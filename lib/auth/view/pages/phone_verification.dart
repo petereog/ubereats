@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
+import 'package:ubereats/navigation/view/main_navigation.dart';
+
 
 class PhoneVerification extends StatefulWidget {
   const PhoneVerification({super.key});
@@ -71,21 +74,45 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                   debugPrint('Entered OTP: $pin');
                 },
               ),
-              const SizedBox(height: 30), 
-              Text(
-                'Didn\'t receive the code?',
-                style: TextStyle(fontSize: 14, color: Colors.grey.shade600),
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  Text(
+                    'Didn\'t receive the code?',
+                    style: TextStyle(fontSize: 14, color: Colors.grey.shade600),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // TODO: Resend OTP logic here
+                    },
+                    child: const Text('Resend Code'),
+                  ),
+                ],
               ),
-              TextButton(
-                onPressed: () {
-                  // TODO: Resend OTP logic here
-                },
-                child: const Text('Resend Code'),
-              ),  
             ],
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Get.to(() => const MainNavigation());
+        },
+        backgroundColor: const Color(0xFF06C167),
+        elevation: 0,
+          shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(1),
+        ),
+        highlightElevation: 0,
+        label: const Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Next', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            SizedBox(width: 6),
+            Icon(Icons.arrow_forward, size: 24),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
