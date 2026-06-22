@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ubereats/home/view/pages/home_screen.dart';
+import 'package:ubereats/home/view/pages/main_home_screen.dart';
 import 'package:ubereats/browse/view/pages/browse_screen.dart';
 import 'package:ubereats/grocery/view/pages/grocery_screen.dart';
 import 'package:ubereats/basket/view/pages/basket_screen.dart';
@@ -11,7 +11,7 @@ class MainNavigation extends StatelessWidget {
   const MainNavigation({super.key});
 
   static final List<Widget> _pages = const [
-    HomeScreen(),
+    MainHomeScreen(),
     BrowseScreen(),
     GroceryScreen(),
     BasketScreen(),
