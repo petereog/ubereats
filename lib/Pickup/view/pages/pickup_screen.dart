@@ -1,21 +1,29 @@
 import 'package:flutter/material.dart';
 
-class PickupScreen extends StatefulWidget {
+class PickupScreen extends StatelessWidget {
   const PickupScreen({super.key});
 
   @override
-  State<PickupScreen> createState() => _PickupScreenState();
-}
-
-class _PickupScreenState extends State<PickupScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Text('Welcome  to pickup screen')
-        ],
-      )
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(Icons.shopping_bag_outlined, size: 60, color: Colors.black),
+            SizedBox(height: 16),
+            Text(
+              'Pick-up',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Order ahead and pick up at the restaurant',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
