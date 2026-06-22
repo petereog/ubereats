@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: const [
                         Text(
-                          '45 Isaac John Street, Ikeja GRA',
+                          '45 John Street, Ikeja GRA',
                           style: TextStyle(
                             fontSize: 16,
                             color: Color.fromARGB(255, 0, 0, 0),

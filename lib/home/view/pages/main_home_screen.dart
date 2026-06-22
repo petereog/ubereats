@@ -19,7 +19,7 @@ class MainHomeScreen extends StatelessWidget {
             const SizedBox(height: 24),
 
             SizedBox(
-              width: double.infinity,
+              width: 400,
               height: 50,
               child: TabBar(
                 controller: controller.tabController,
@@ -27,8 +27,9 @@ class MainHomeScreen extends StatelessWidget {
                 unselectedLabelColor: Colors.black,
                 indicator: BoxDecoration(
                   color: const Color.fromARGB(255, 6, 6, 6),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(50),
                 ),
+                dividerColor: Colors.transparent,
                 indicatorSize: TabBarIndicatorSize.tab,
                 labelStyle: const TextStyle(
                   fontSize: 16,
