@@ -18,7 +18,7 @@ class DineinScreen extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              'Find restaurants near you to dine in',
+              'Find restaurantjhvlhvlhs near you to dine in',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
           ],
