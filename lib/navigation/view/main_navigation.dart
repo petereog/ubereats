@@ -35,7 +35,7 @@ class MainNavigation extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Browse'),
+          BottomNavigationBarItem(icon: Icon(Icons.manage_search), label: 'Browse'),
           BottomNavigationBarItem(icon: Icon(Icons.local_grocery_store), label: 'Grocery'),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_basket), label: 'Basket'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
