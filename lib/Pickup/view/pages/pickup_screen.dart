@@ -184,32 +184,32 @@ class _PickupScreenState extends State<PickupScreen> {
               children: [
                 Column(
                   children: [
-                    SizedBox(height: 95, width: 75, child: Image.asset('assets/images/con 1.png')),
+                    SizedBox(height: 70, width: 75, child: Image.asset('assets/images/con 1.png')),
                     const Text('Fast Food'),
                   ],
                 ),
                 Column(
                   children: [
-                    SizedBox(height: 95, width: 75, child: Image.asset('assets/images/convenience 1 (1).png')),
-                    const Text('Fast Food'),
+                    SizedBox(height: 70, width: 75, child: Image.asset('assets/images/convenience 1 (1).png')),
+                    const Text('Carribean'),
                   ],
                 ),
                 Column(
                   children: [
-                    SizedBox(height: 95, width: 75, child: Image.asset('assets/images/convenience 1 (2).png')),
-                    const Text('Fast Food'),
+                    SizedBox(height: 70, width: 75, child: Image.asset('assets/images/convenience 1 (2).png')),
+                    const Text('Chinese'),
                   ],
                 ),
                 Column(
                   children: [
-                    SizedBox(height: 95, width: 75, child: Image.asset('assets/images/convenience 1 (3).png')),
-                    const Text('Fast Food'),
+                    SizedBox(height: 70, width: 75, child: Image.asset('assets/images/convenience 1 (3).png')),
+                    const Text('French'),
                   ],
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
