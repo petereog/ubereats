@@ -64,7 +64,7 @@ class DineinScreen extends StatelessWidget {
             // ---- Dine-in card 5 ----
             _buildDineInCard(
               imagePath: 'assets/images/1585ceb3-3e22-445b-b2c0-d11580a1b1b5 1.png',
-              name: 'Burgs Restaurant',
+              name: 'Burg Restaurant',
               rating: '44',
             ),
 
