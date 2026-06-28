@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ubereats/convience/view/pages/convience_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,33 +15,29 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 10),
 
           // ---- Address row + filter icon ----
-          Container(
-            child: Center(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: const [
-                        Text(
-                          '45 Isaac John Street, Ikeja GRA',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Icon(Icons.keyboard_arrow_down, color: Colors.black),
-                      ],
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      '45 Isaac John Street, Ikeja GRA',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 50),
-                  const Icon(Icons.filter_list, color: Colors.black),
-                ],
+                    Icon(Icons.keyboard_arrow_down, color: Colors.black),
+                  ],
+                ),
               ),
-            ),
+              const SizedBox(width: 50),
+              const Icon(Icons.filter_list, color: Colors.black),
+            ],
           ),
           const SizedBox(height: 20),
 
@@ -122,34 +120,38 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
 
-          // ---- Menu category icons (Convenience / Alcohol / Pet supplies / More) ----
+          // ---- Menu category icons ----
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                children: [
-                  Container(
-                    width: 74,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFE6E6E6),
-                      borderRadius: BorderRadius.circular(8),
+              // FIX: GestureDetector wraps Column (both container + label)
+              GestureDetector(
+                onTap: () => Get.to(() => const ConvienceScreen()),
+                child: Column(
+                  children: [
+                    Container(
+                      width: 74,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE6E6E6),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Image.asset(
+                        'assets/images/convenience 1.png',
+                        width: 60,
+                        height: 40,
+                      ),
                     ),
-                    child: Image.asset(
-                      'assets/images/convenience 1.png',
-                      width: 60,
-                      height: 40,
+                    const Text(
+                      'Convenience',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  const Text(
-                    'Convenience',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Column(
                 children: [
@@ -282,7 +284,8 @@ class HomeScreen extends StatelessWidget {
                             bottom: 10,
                             left: 10,
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 6),
                               decoration: BoxDecoration(
                                 color: const Color(0xFF06C167),
                                 borderRadius: BorderRadius.circular(20),
@@ -314,7 +317,8 @@ class HomeScreen extends StatelessWidget {
                           Container(
                             height: 40,
                             width: 40,
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(
                               color: const Color(0xFFEEEEEE),
                               borderRadius: BorderRadius.circular(20),
@@ -399,7 +403,8 @@ class HomeScreen extends StatelessWidget {
                           Container(
                             height: 40,
                             width: 40,
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(
                               color: const Color(0xFFEEEEEE),
                               borderRadius: BorderRadius.circular(20),
@@ -444,8 +449,10 @@ class HomeScreen extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(12),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         const SizedBox(
                                           width: 120,
@@ -461,8 +468,12 @@ class HomeScreen extends StatelessWidget {
                                         TextButton(
                                           onPressed: () {},
                                           style: TextButton.styleFrom(
-                                            foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-                                            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                                            foregroundColor:
+                                                const Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                            backgroundColor:
+                                                const Color.fromARGB(
+                                                    255, 255, 255, 255),
                                           ),
                                           child: const Text(
                                             'Browse best offer',
@@ -501,8 +512,10 @@ class HomeScreen extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(12),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         const SizedBox(
                                           width: 120,
@@ -518,8 +531,12 @@ class HomeScreen extends StatelessWidget {
                                         TextButton(
                                           onPressed: () {},
                                           style: TextButton.styleFrom(
-                                            foregroundColor: const Color.fromARGB(255, 0, 0, 0),
-                                            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                                            foregroundColor:
+                                                const Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                            backgroundColor:
+                                                const Color.fromARGB(
+                                                    255, 255, 255, 255),
                                           ),
                                           child: const Text(
                                             'Browse best offer',

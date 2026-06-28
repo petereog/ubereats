@@ -75,7 +75,7 @@ class AccountScreen extends StatelessWidget {
               _buildMenuItem('assets/images/Vector (2).png', 'Help'),
               _buildMenuItem('assets/images/Vector (3).png', 'About'),
               _buildMenuItem('assets/images/Uber-Pass.png', 'Uber Pass',
-    subtitle: 'Join free for 1 month'),
+                subtitle: 'Join free for 1 month'),
               _buildMenuItem('assets/images/Deliver.png', 'Deliver with Uber'),
               _buildMenuItem('assets/images/Settings Icon.png', 'Settings'),
             ],
